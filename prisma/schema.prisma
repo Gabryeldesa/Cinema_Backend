@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Cinema {
+  id       Int     @id @default(autoincrement())
+  nome     String
+  endereco String?
+  salas    Sala[]
+}
+
+model Sala {
+  id         Int        @id @default(autoincrement())
+  codigo     String
+  capacidade Int
+  cinema     Cinema     @relation(fields: [cinemaId], references: [id])
+  cinemaId   Int
+  poutronas  Poutrona[]
+}
+
+model Poutrona {
+  id        Int     @id @default(autoincrement())
+  numero    Int
+  categoria String
+  sala      Sala    @relation(fields: [salaId], references: [id])
+  salaId    Int
+  status    Boolean @default(false)
+}
