@@ -21,10 +21,10 @@ let SalaService = class SalaService {
         return this.prisma.sala.create({ data: createSalaDto });
     }
     findAll() {
-        return this.prisma.sala.findMany({ include: { poutronas: true } });
+        return this.prisma.sala.findMany({ include: { poltronas: true } });
     }
     findOne(id) {
-        return this.prisma.sala.findUnique({ where: { id }, include: { poutronas: true } });
+        return this.prisma.sala.findUnique({ where: { id }, include: { poltronas: true } });
     }
     update(id, updateSalaDto) {
         return this.prisma.sala.update({ where: { id }, data: updateSalaDto });

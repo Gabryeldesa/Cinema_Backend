@@ -6,19 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PoutronaModule = void 0;
+exports.PoltronaModule = void 0;
 const common_1 = require("@nestjs/common");
-const poutrona_service_1 = require("./poutrona.service");
-const poutrona_controller_1 = require("./poutrona.controller");
+const poltrona_service_1 = require("./poltrona.service");
+const poltrona_controller_1 = require("./poltrona.controller");
 const prisma_module_1 = require("../prisma/prisma.module");
-let PoutronaModule = class PoutronaModule {
+let PoltronaModule = class PoltronaModule {
 };
-exports.PoutronaModule = PoutronaModule;
-exports.PoutronaModule = PoutronaModule = __decorate([
+exports.PoltronaModule = PoltronaModule;
+exports.PoltronaModule = PoltronaModule = __decorate([
     (0, common_1.Module)({
         imports: [prisma_module_1.PrismaModule],
-        controllers: [poutrona_controller_1.PoutronaController],
-        providers: [poutrona_service_1.PoutronaService],
+        controllers: [poltrona_controller_1.PoltronaController],
+        providers: [poltrona_service_1.PoltronaService],
     })
-], PoutronaModule);
-//# sourceMappingURL=poutrona.module.js.map
+], PoltronaModule);
+//# sourceMappingURL=poltrona.module.js.map

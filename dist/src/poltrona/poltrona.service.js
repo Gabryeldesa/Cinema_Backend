@@ -9,33 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PoutronaService = void 0;
+exports.PoltronaService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma/prisma.service");
-let PoutronaService = class PoutronaService {
+let PoltronaService = class PoltronaService {
     prisma;
     constructor(prisma) {
         this.prisma = prisma;
     }
-    create(createPoutronaDto) {
-        return this.prisma.poutrona.create({ data: createPoutronaDto });
+    create(createPoltronaDto) {
+        return this.prisma.poltrona.create({ data: createPoltronaDto });
     }
     findAll() {
-        return this.prisma.poutrona.findMany();
+        return this.prisma.poltrona.findMany();
     }
     findOne(id) {
-        return this.prisma.poutrona.findUnique({ where: { id } });
+        return this.prisma.poltrona.findUnique({ where: { id } });
     }
-    update(id, updatePoutronaDto) {
-        return this.prisma.poutrona.update({ where: { id }, data: updatePoutronaDto });
+    update(id, updatePoltronaDto) {
+        return this.prisma.poltrona.update({ where: { id }, data: updatePoltronaDto });
     }
     remove(id) {
-        return this.prisma.poutrona.delete({ where: { id } });
+        return this.prisma.poltrona.delete({ where: { id } });
     }
 };
-exports.PoutronaService = PoutronaService;
-exports.PoutronaService = PoutronaService = __decorate([
+exports.PoltronaService = PoltronaService;
+exports.PoltronaService = PoltronaService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [prisma_service_1.PrismaService])
-], PoutronaService);
-//# sourceMappingURL=poutrona.service.js.map
+], PoltronaService);
+//# sourceMappingURL=poltrona.service.js.map

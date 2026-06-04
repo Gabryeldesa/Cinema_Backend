@@ -4,10 +4,10 @@ import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { CinemaModule } from './cinema/cinema.module';
 import { SalaModule } from './sala/sala.module';
-import { PoutronaModule } from './poutrona/poutrona.module';
+import { PoltronaModule } from './poltrona/poltrona.module';
 
 @Module({
-  imports: [PrismaModule, CinemaModule, SalaModule, PoutronaModule],
+  imports: [PrismaModule, CinemaModule, SalaModule, PoltronaModule],
   controllers: [AppController],
   providers: [AppService],
 })

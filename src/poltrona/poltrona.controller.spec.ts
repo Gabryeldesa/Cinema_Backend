@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { PoutronaController } from './poutrona.controller';
-import { PoutronaService } from './poutrona.service';
+import { PoutronaController } from './poltrona.controller';
+import { PoutronaService } from './poltrona.service';
 
 describe('PoutronaController', () => {
   let controller: PoutronaController;

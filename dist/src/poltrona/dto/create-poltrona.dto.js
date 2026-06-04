@@ -9,36 +9,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreatePoutronaDto = void 0;
+exports.CreatePoltronaDto = void 0;
 const class_validator_1 = require("class-validator");
 const swagger_1 = require("@nestjs/swagger");
-class CreatePoutronaDto {
+class CreatePoltronaDto {
     numero;
     categoria;
     salaId;
     status;
 }
-exports.CreatePoutronaDto = CreatePoutronaDto;
+exports.CreatePoltronaDto = CreatePoltronaDto;
 __decorate([
     (0, swagger_1.ApiProperty)({ example: 1 }),
     (0, class_validator_1.IsInt)(),
     __metadata("design:type", Number)
-], CreatePoutronaDto.prototype, "numero", void 0);
+], CreatePoltronaDto.prototype, "numero", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({ example: 'VIP' }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], CreatePoutronaDto.prototype, "categoria", void 0);
+], CreatePoltronaDto.prototype, "categoria", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({ example: 1 }),
     (0, class_validator_1.IsInt)(),
     __metadata("design:type", Number)
-], CreatePoutronaDto.prototype, "salaId", void 0);
+], CreatePoltronaDto.prototype, "salaId", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({ example: false, required: false }),
     (0, class_validator_1.IsBoolean)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Boolean)
-], CreatePoutronaDto.prototype, "status", void 0);
-//# sourceMappingURL=create-poutrona.dto.js.map
+], CreatePoltronaDto.prototype, "status", void 0);
+//# sourceMappingURL=create-poltrona.dto.js.map

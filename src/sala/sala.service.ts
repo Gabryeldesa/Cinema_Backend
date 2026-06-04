@@ -12,11 +12,11 @@ export class SalaService {
   }
 
   findAll() {
-    return this.prisma.sala.findMany({ include: { poutronas: true } });
+    return this.prisma.sala.findMany({ include: { poltronas: true } });
   }
 
   findOne(id: number) {
-    return this.prisma.sala.findUnique({ where: { id }, include: { poutronas: true } });
+    return this.prisma.sala.findUnique({ where: { id }, include: { poltronas: true } });
   }
 
   update(id: number, updateSalaDto: UpdateSalaDto) {

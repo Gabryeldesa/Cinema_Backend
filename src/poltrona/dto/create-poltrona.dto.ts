@@ -1,7 +1,7 @@
 import { IsBoolean, IsInt, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreatePoutronaDto {
+export class CreatePoltronaDto {
   @ApiProperty({ example: 1 })
   @IsInt()
   numero!: number;

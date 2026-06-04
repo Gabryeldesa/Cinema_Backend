@@ -13,13 +13,13 @@ const app_service_1 = require("./app.service");
 const prisma_module_1 = require("./prisma/prisma.module");
 const cinema_module_1 = require("./cinema/cinema.module");
 const sala_module_1 = require("./sala/sala.module");
-const poutrona_module_1 = require("./poutrona/poutrona.module");
+const poltrona_module_1 = require("./poltrona/poltrona.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule, cinema_module_1.CinemaModule, sala_module_1.SalaModule, poutrona_module_1.PoutronaModule],
+        imports: [prisma_module_1.PrismaModule, cinema_module_1.CinemaModule, sala_module_1.SalaModule, poltrona_module_1.PoltronaModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

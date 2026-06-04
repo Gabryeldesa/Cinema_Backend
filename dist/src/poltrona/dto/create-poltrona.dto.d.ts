@@ -1,4 +1,4 @@
-export declare class CreatePoutronaDto {
+export declare class CreatePoltronaDto {
     numero: number;
     categoria: string;
     salaId: number;
