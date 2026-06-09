@@ -13,12 +13,18 @@ exports.CreatePoltronaDto = void 0;
 const class_validator_1 = require("class-validator");
 const swagger_1 = require("@nestjs/swagger");
 class CreatePoltronaDto {
+    fila;
     numero;
     categoria;
     salaId;
     status;
 }
 exports.CreatePoltronaDto = CreatePoltronaDto;
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: 1 }),
+    (0, class_validator_1.IsInt)(),
+    __metadata("design:type", Number)
+], CreatePoltronaDto.prototype, "fila", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({ example: 1 }),
     (0, class_validator_1.IsInt)(),

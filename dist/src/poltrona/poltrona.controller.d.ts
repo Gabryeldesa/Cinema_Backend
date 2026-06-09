@@ -4,39 +4,44 @@ import { UpdatePoltronaDto } from './dto/update-poltrona.dto';
 export declare class PoltronaController {
     private readonly poltronaService;
     constructor(poltronaService: PoltronaService);
-    create(createPoltronaDto: CreatePoltronaDto): import("@prisma/client").Prisma.Prisma__PoltronaClient<{
+    create(createPoltronaDto: CreatePoltronaDto): Promise<{
         id: number;
-        numero: number;
-        categoria: string;
         salaId: number;
+        numero: number;
+        fila: number;
+        categoria: string;
         status: boolean;
-    }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
+    }>;
     findAll(): import("@prisma/client").Prisma.PrismaPromise<{
         id: number;
-        numero: number;
-        categoria: string;
         salaId: number;
+        numero: number;
+        fila: number;
+        categoria: string;
         status: boolean;
     }[]>;
-    findOne(id: string): import("@prisma/client").Prisma.Prisma__PoltronaClient<{
+    findOne(id: string): Promise<{
         id: number;
-        numero: number;
-        categoria: string;
         salaId: number;
+        numero: number;
+        fila: number;
+        categoria: string;
         status: boolean;
-    } | null, null, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
-    update(id: string, updatePoltronaDto: UpdatePoltronaDto): import("@prisma/client").Prisma.Prisma__PoltronaClient<{
+    }>;
+    update(id: string, updatePoltronaDto: UpdatePoltronaDto): Promise<{
         id: number;
-        numero: number;
-        categoria: string;
         salaId: number;
+        numero: number;
+        fila: number;
+        categoria: string;
         status: boolean;
-    }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
-    remove(id: string): import("@prisma/client").Prisma.Prisma__PoltronaClient<{
+    }>;
+    remove(id: string): Promise<{
         id: number;
-        numero: number;
-        categoria: string;
         salaId: number;
+        numero: number;
+        fila: number;
+        categoria: string;
         status: boolean;
-    }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
+    }>;
 }

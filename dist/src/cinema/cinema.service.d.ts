@@ -1,46 +1,47 @@
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateCinemaDto } from './dto/create-cinema.dto';
 import { UpdateCinemaDto } from './dto/update-cinema.dto';
+import { Prisma } from '@prisma/client';
 export declare class CinemaService {
     private prisma;
     constructor(prisma: PrismaService);
-    create(createCinemaDto: CreateCinemaDto): import("@prisma/client").Prisma.Prisma__CinemaClient<{
+    create(createCinemaDto: CreateCinemaDto): Promise<{
         nome: string;
         endereco: string | null;
         id: number;
-    }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
-    findAll(): import("@prisma/client").Prisma.PrismaPromise<({
+    }>;
+    findAll(): Prisma.PrismaPromise<({
         salas: {
             id: number;
-            codigo: string;
-            capacidade: number;
             cinemaId: number;
+            numero: number;
+            capacidade: number;
         }[];
     } & {
         nome: string;
         endereco: string | null;
         id: number;
     })[]>;
-    findOne(id: number): import("@prisma/client").Prisma.Prisma__CinemaClient<({
+    findOne(id: number): Promise<{
         salas: {
             id: number;
-            codigo: string;
-            capacidade: number;
             cinemaId: number;
+            numero: number;
+            capacidade: number;
         }[];
     } & {
         nome: string;
         endereco: string | null;
         id: number;
-    }) | null, null, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
-    update(id: number, updateCinemaDto: UpdateCinemaDto): import("@prisma/client").Prisma.Prisma__CinemaClient<{
+    }>;
+    update(id: number, updateCinemaDto: UpdateCinemaDto): Promise<{
         nome: string;
         endereco: string | null;
         id: number;
-    }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
-    remove(id: number): import("@prisma/client").Prisma.Prisma__CinemaClient<{
+    }>;
+    remove(id: number): Promise<{
         nome: string;
         endereco: string | null;
         id: number;
-    }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
+    }>;
 }

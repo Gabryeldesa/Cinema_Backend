@@ -12,24 +12,38 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PoltronaService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma/prisma.service");
+const client_1 = require("@prisma/client");
 let PoltronaService = class PoltronaService {
     prisma;
     constructor(prisma) {
         this.prisma = prisma;
     }
-    create(createPoltronaDto) {
-        return this.prisma.poltrona.create({ data: createPoltronaDto });
+    async create(createPoltronaDto) {
+        try {
+            return await this.prisma.poltrona.create({ data: createPoltronaDto });
+        }
+        catch (e) {
+            if (e instanceof client_1.Prisma.PrismaClientKnownRequestError && e.code === 'P2003') {
+                throw new common_1.BadRequestException('Sala informada não existe');
+            }
+            throw e;
+        }
     }
     findAll() {
         return this.prisma.poltrona.findMany();
     }
-    findOne(id) {
-        return this.prisma.poltrona.findUnique({ where: { id } });
+    async findOne(id) {
+        const poltrona = await this.prisma.poltrona.findUnique({ where: { id } });
+        if (!poltrona)
+            throw new common_1.NotFoundException(`Poltrona #${id} não encontrada`);
+        return poltrona;
     }
-    update(id, updatePoltronaDto) {
+    async update(id, updatePoltronaDto) {
+        await this.findOne(id);
         return this.prisma.poltrona.update({ where: { id }, data: updatePoltronaDto });
     }
-    remove(id) {
+    async remove(id) {
+        await this.findOne(id);
         return this.prisma.poltrona.delete({ where: { id } });
     }
 };

@@ -13,17 +13,16 @@ exports.CreateSalaDto = void 0;
 const class_validator_1 = require("class-validator");
 const swagger_1 = require("@nestjs/swagger");
 class CreateSalaDto {
-    codigo;
+    numero;
     capacidade;
     cinemaId;
 }
 exports.CreateSalaDto = CreateSalaDto;
 __decorate([
-    (0, swagger_1.ApiProperty)({ example: 'SALA-01' }),
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", String)
-], CreateSalaDto.prototype, "codigo", void 0);
+    (0, swagger_1.ApiProperty)({ example: 1 }),
+    (0, class_validator_1.IsInt)(),
+    __metadata("design:type", Number)
+], CreateSalaDto.prototype, "numero", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({ example: 100 }),
     (0, class_validator_1.IsInt)(),

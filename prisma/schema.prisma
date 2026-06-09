@@ -7,26 +7,83 @@ datasource db {
 }
 
 model Cinema {
-  id       Int     @id @default(autoincrement())
+  id       Int      @id @default(autoincrement())
   nome     String
   endereco String?
   salas    Sala[]
+  filmes   Filme[]
+  sessoes  Sessao[]
 }
 
 model Sala {
   id         Int        @id @default(autoincrement())
-  codigo     String
+  numero     Int
   capacidade Int
   cinema     Cinema     @relation(fields: [cinemaId], references: [id])
   cinemaId   Int
   poltronas  Poltrona[]
+  sessoes    Sessao[]
 }
 
 model Poltrona {
   id        Int     @id @default(autoincrement())
+  fila      Int
   numero    Int
   categoria String
   sala      Sala    @relation(fields: [salaId], references: [id])
   salaId    Int
   status    Boolean @default(false)
+}
+
+model Filme {
+  id                 Int       @id @default(autoincrement())
+  titulo             String
+  sinopse            String?
+  classificacao      String?
+  duracao            String?
+  genero             String?
+  dataInicioExibicao DateTime?
+  dataFinalExibicao  DateTime?
+  cinema             Cinema    @relation(fields: [cinemaId], references: [id])
+  cinemaId           Int
+  sessoes            Sessao[]
+}
+
+model Sessao {
+  id              Int        @id @default(autoincrement())
+  horarioExibicao DateTime
+  filme           Filme      @relation(fields: [filmeId], references: [id])
+  filmeId         Int
+  sala            Sala       @relation(fields: [salaId], references: [id])
+  salaId          Int
+  cinema          Cinema     @relation(fields: [cinemaId], references: [id])
+  cinemaId        Int
+  ingressos       Ingresso[]
+}
+
+model Ingresso {
+  id           Int      @id @default(autoincrement())
+  valorInteira Float
+  valorMeia    Float
+  sessao       Sessao   @relation(fields: [sessaoId], references: [id])
+  sessaoId     Int
+  pedidos      Pedido[] @relation("PedidoIngressos")
+}
+
+model LancheCombo {
+  id            Int      @id @default(autoincrement())
+  nome          String
+  descricao     String?
+  valorUnitario Float
+  qtUnidade     Int
+  pedidos       Pedido[] @relation("PedidoLanches")
+}
+
+model Pedido {
+  id         Int           @id @default(autoincrement())
+  qtInteira  Int
+  qtMeia     Int
+  valorTotal Float
+  ingressos  Ingresso[]    @relation("PedidoIngressos")
+  lanches    LancheCombo[] @relation("PedidoLanches")
 }

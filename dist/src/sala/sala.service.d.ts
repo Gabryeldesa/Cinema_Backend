@@ -1,53 +1,56 @@
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateSalaDto } from './dto/create-sala.dto';
 import { UpdateSalaDto } from './dto/update-sala.dto';
+import { Prisma } from '@prisma/client';
 export declare class SalaService {
     private prisma;
     constructor(prisma: PrismaService);
-    create(createSalaDto: CreateSalaDto): import("@prisma/client").Prisma.Prisma__SalaClient<{
-        codigo: string;
-        capacidade: number;
+    create(createSalaDto: CreateSalaDto): Promise<{
         id: number;
         cinemaId: number;
-    }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
-    findAll(): import("@prisma/client").Prisma.PrismaPromise<({
+        numero: number;
+        capacidade: number;
+    }>;
+    findAll(): Prisma.PrismaPromise<({
         poltronas: {
             id: number;
-            numero: number;
-            categoria: string;
             salaId: number;
+            numero: number;
+            fila: number;
+            categoria: string;
             status: boolean;
         }[];
     } & {
-        codigo: string;
-        capacidade: number;
         id: number;
         cinemaId: number;
+        numero: number;
+        capacidade: number;
     })[]>;
-    findOne(id: number): import("@prisma/client").Prisma.Prisma__SalaClient<({
+    findOne(id: number): Promise<{
         poltronas: {
             id: number;
-            numero: number;
-            categoria: string;
             salaId: number;
+            numero: number;
+            fila: number;
+            categoria: string;
             status: boolean;
         }[];
     } & {
-        codigo: string;
-        capacidade: number;
         id: number;
         cinemaId: number;
-    }) | null, null, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
-    update(id: number, updateSalaDto: UpdateSalaDto): import("@prisma/client").Prisma.Prisma__SalaClient<{
-        codigo: string;
+        numero: number;
         capacidade: number;
+    }>;
+    update(id: number, updateSalaDto: UpdateSalaDto): Promise<{
         id: number;
         cinemaId: number;
-    }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
-    remove(id: number): import("@prisma/client").Prisma.Prisma__SalaClient<{
-        codigo: string;
+        numero: number;
         capacidade: number;
+    }>;
+    remove(id: number): Promise<{
         id: number;
         cinemaId: number;
-    }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
+        numero: number;
+        capacidade: number;
+    }>;
 }

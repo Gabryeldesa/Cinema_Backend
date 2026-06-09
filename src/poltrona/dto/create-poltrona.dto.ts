@@ -4,6 +4,10 @@ import { ApiProperty } from '@nestjs/swagger';
 export class CreatePoltronaDto {
   @ApiProperty({ example: 1 })
   @IsInt()
+  fila!: number;
+
+  @ApiProperty({ example: 1 })
+  @IsInt()
   numero!: number;
 
   @ApiProperty({ example: 'VIP' })

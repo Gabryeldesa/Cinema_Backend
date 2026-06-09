@@ -1,5 +1,5 @@
 export declare class CreateSalaDto {
-    codigo: string;
+    numero: number;
     capacidade: number;
     cinemaId: number;
 }

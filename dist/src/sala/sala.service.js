@@ -12,24 +12,38 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SalaService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma/prisma.service");
+const client_1 = require("@prisma/client");
 let SalaService = class SalaService {
     prisma;
     constructor(prisma) {
         this.prisma = prisma;
     }
-    create(createSalaDto) {
-        return this.prisma.sala.create({ data: createSalaDto });
+    async create(createSalaDto) {
+        try {
+            return await this.prisma.sala.create({ data: createSalaDto });
+        }
+        catch (e) {
+            if (e instanceof client_1.Prisma.PrismaClientKnownRequestError && e.code === 'P2003') {
+                throw new common_1.BadRequestException('Cinema informado não existe');
+            }
+            throw e;
+        }
     }
     findAll() {
         return this.prisma.sala.findMany({ include: { poltronas: true } });
     }
-    findOne(id) {
-        return this.prisma.sala.findUnique({ where: { id }, include: { poltronas: true } });
+    async findOne(id) {
+        const sala = await this.prisma.sala.findUnique({ where: { id }, include: { poltronas: true } });
+        if (!sala)
+            throw new common_1.NotFoundException(`Sala #${id} não encontrada`);
+        return sala;
     }
-    update(id, updateSalaDto) {
+    async update(id, updateSalaDto) {
+        await this.findOne(id);
         return this.prisma.sala.update({ where: { id }, data: updateSalaDto });
     }
-    remove(id) {
+    async remove(id) {
+        await this.findOne(id);
         return this.prisma.sala.delete({ where: { id } });
     }
 };
