@@ -7,7 +7,7 @@ export class CreateCinemaDto {
   @IsNotEmpty()
   nome!: string;
 
-  @ApiProperty({ example: 'Rua das Flores, 123', required: false })
+  @ApiProperty({ example: 'Aparecida de Goiânia', required: false })
   @IsString()
   @IsOptional()
   endereco?: string;

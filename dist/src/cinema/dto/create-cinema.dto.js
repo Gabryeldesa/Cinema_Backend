@@ -24,7 +24,7 @@ __decorate([
     __metadata("design:type", String)
 ], CreateCinemaDto.prototype, "nome", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ example: 'Rua das Flores, 123', required: false }),
+    (0, swagger_1.ApiProperty)({ example: 'Aparecida de Goiânia', required: false }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
